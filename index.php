@@ -13,7 +13,5 @@
             <div class="md-5">Produtos</div>
         </nav>
     </nav>
-
-    <h1>Teste</h1>
 </body>
 </html>
