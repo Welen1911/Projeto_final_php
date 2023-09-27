@@ -15,35 +15,34 @@
     </nav>
 
     <form action="#" method="POST">
-        <div class="mb-3">
+        <div class="col-3 mb-4">
             <label for="nameInput" class="form-label">Nome</label>
-            <input type="text" class="form-control" id="nameInput">
+            <input class="form-control form-control-lg" type="text" placeholder="Digite seu nome" aria-label=".form-control-lg example" id="nameInput">
         </div>
-        <div class="mb-3">
+        <div class="col-3 mb-4">
             <label for="userInput" class="form-label">Username</label>
-            <input type="text" class="form-control" id="userInput">
+            <input class="form-control form-control-lg" type="text" placeholder="Digite seu Username" aria-label=".form-control-lg example" id="userInput">
         </div>
-        <div class="mb-3 form-check">
+        <div class="col-3 mb-4 form-check">
             <input type="checkbox" class="form-check-input" id="Check1">
             <label class="form-check-label" for="Check1">Admin</label>
         </div>
-        <div class="mb-3 form-check">
+        <div class="col-3 mb-4 form-check">
             <input type="checkbox" class="form-check-input" id="Check2">
             <label class="form-check-label" for="Check2">Comum</label>
         </div>
-        <div class="mb-3">
+        <div class="col-3 mb-4">
             <label for="exampleInputEmail1" class="form-label">Endereço de Email</label>
-            <input type="email" class="form-control" id="exampleInputEmail1">
+            <input type="email" class="form-control form-control-lg" placeholder="Digite seu email" id="exampleInputEmail1">
         </div>
-        <div class="mb-3">
+        <div class="col-3 mb-4">
             <label for="exampleInputPassword1" class="form-label">Senha</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
+            <input type="password" class="form-control form-control-lg" placeholder="Digite sua senha" id="exampleInputPassword1">
         </div>
-        <div class="mb-3">
+        <div class="col-3 mb-4">
             <label for="exampleInputPassword2" class="form-label">Confirmar senha</label>
-            <input type="password" class="form-control" id="exampleInputPassword2">
+            <input type="password" class="form-control form-control-lg" placeholder="Confirme sua senha" id="exampleInputPassword2">
         </div>
-        
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </body>
