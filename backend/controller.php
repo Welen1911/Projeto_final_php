@@ -17,8 +17,34 @@
             }
         }
 
+        public function getId($id) {
+            $sql = "SELECT `id`, `nome`, `email`, `username`, `tipo` FROM `usuarios` WHERE id = '$id'";
+
+            $fetch = mysqli_query($this->con, $sql);
+            if (!$fetch) echo "Erro: ".mysqli_error($this->con);
+            else {
+                return mysqli_fetch_object($fetch);
+            }
+        }
+
+
+
+
+
+
+        public function getProducts() {
+            $sql = "SELECT * FROM `produtos`";
+
+            $fetch = mysqli_query($this->con, $sql);
+            if (!$fetch) echo "Erro: ".mysqli_error($this->con);
+            else {
+                return mysqli_fetch_object($fetch);
+            }
+        }
+    
     }
 
+   
 
 
 ?>
