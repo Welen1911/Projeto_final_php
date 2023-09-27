@@ -23,13 +23,17 @@
             <label for="userInput" class="form-label">Username</label>
             <input class="form-control form-control-lg" type="text" placeholder="Digite seu Username" aria-label=".form-control-lg example" id="userInput" name="username">
         </div>
-        <div class="col-3 mb-4 form-check">
-            <input type="checkbox" class="form-check-input" id="Check1" name="checkAdmin">
-            <label class="form-check-label" for="Check1">Admin</label>
-        </div>
-        <div class="col-3 mb-4 form-check">
-            <input type="checkbox" class="form-check-input" id="Check2" name="checkComun">
-            <label class="form-check-label" for="Check2">Comum</label>
+        <div class="form-check col-3 mb-4">
+            <input class="form-check-input" type="radio" name="boxAdmin" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+                Conta de Adiministrador
+            </label>
+            </div>
+            <div class="form-check col-3 mb-4">
+            <input class="form-check-input" type="radio" name="boxComum" id="flexRadioDefault2" checked>
+            <label class="form-check-label" for="flexRadioDefault2">
+                Conta Comum
+            </label>
         </div>
         <div class="col-3 mb-4">
             <label for="exampleInputEmail1" class="form-label">Endereço de Email</label>
