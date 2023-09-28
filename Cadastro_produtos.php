@@ -8,25 +8,38 @@
     <title>Cadastro de produtos</title>
 </head>
 <body>
+<nav class="nav bg-dark">
+    <nav class="navbar text-white">
+      <div class="md-5" style="margin-right: 10px;">Produtos</div>
+    </nav>
+  </nav>
+  <br>
   <h3>Complete as informações abaixo para cadastrar produto:</h3></br>
 
+  <form action="backend/createProduct.php" method="post">
   <div class="row g-3">
   <div class="col-sm-2">
-    <input type="text" class="form-control" placeholder="Nome" aria-label="Nome">
+    <input type="text" class="form-control" name="nome" placeholder="Nome" aria-label="Nome">
   </div>
   <div class="col-sm-2">
-    <input type="text" class="form-control" placeholder="Descrição" aria-label="Descrição">
+    <input type="text" class="form-control" name="preco" placeholder="Preço" aria-label="Preço">
   </div>
   <div class="col-sm-2">
-    <input type="text" class="form-control" placeholder="Preço" aria-label="Preço">
+    <select name="tipo" class="form-control" id="">
+      <option value="bebida">Bebida</option>
+      <option value="comida">Comida</option>
+      <option value="limpeza">Limpeza</option>
+
+    </select>
   </div>
   <div class="col-sm-2">
-    <input type="text" class="form-control" placeholder="Tipo_ID" aria-label="Tipo_ID">
+    <textarea class="form-control" name="descricao" placeholder="Descrição" aria-label="Descrição"></textarea>
   </div>
   <div class="col-auto">
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
   </div>
 </div>
+  </form>
 
 </body>
 </html>

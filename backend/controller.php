@@ -38,7 +38,23 @@
             $fetch = mysqli_query($this->con, $sql);
             if (!$fetch) echo "Erro: ".mysqli_error($this->con);
             else {
-                return mysqli_fetch_object($fetch);
+                return mysqli_fetch_all($fetch);
+            }
+        }
+
+        public function cadastrarProduto($nome, $descricao, $preco, $tipo) {
+
+            $sql = "SELECT `id` FROM `tipos_produtos` WHERE nome = '$tipo'";
+            $fetch = mysqli_query($this->con, $sql);
+            if (!$fetch) echo "Erro: ".mysqli_error($this->con);
+            else {
+                $tipo_id = mysqli_fetch_assoc($fetch);
+                $tipo_id = $tipo_id['id'];
+                $sql = "INSERT INTO `produtos`(`nome`, `descricao`, `preco`, `tipo_id`) VALUES ('$nome','$descricao','$preco', $tipo_id)";
+
+                if (!mysqli_query($this->con, $sql)) echo "Erro: ".mysqli_error($this->con);
+                else header('location: ../index.php?msg=cpr');
+
             }
         }
     

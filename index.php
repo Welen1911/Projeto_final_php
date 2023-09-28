@@ -25,13 +25,13 @@
           <?php echo $user->nome;?>
       </div>
       <div class="md-5">
-        <a href="#" class="btn btn-primary">Admin</a>
+        <a href="Cadastro_produtos.php" class="btn btn-primary">Admin</a>
       </div>
       <?php }?>
     </nav>
   </nav>
 
-  <?php if($products != '') {?>
+  <?php if($products != '') { $cont = 1?>
     <table class="table mt-5">
     <thead>
       <tr>
@@ -43,26 +43,15 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+      <?php  foreach($products as $product) {?>
+        <tr>
+        <th scope="row"><?php echo $cont?></th>
+        <td><?php echo $product[1]?></td>
+        <td><?php echo $product[2]?></td>
+        <td><?php echo $product[3]?></td>
+        <td><?php echo $product[4]; $cont++?></td>
       </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td colspan="2"></td>
-        <td></td>
-        <td></td>
-      </tr>
+      <?php }?>
     </tbody>
   </table>
   <?php } else {?>
