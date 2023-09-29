@@ -18,8 +18,16 @@
                 $fetch = mysqli_query($this->con, $sql);
                 if (!$fetch) echo "Erro: ".mysqli_error($this->con);
                 else {
+                    session_start();
+
                     $user = mysqli_fetch_object($fetch);
-                    header('location: ../index.php?id='.$user->id);
+                    $_SESSION['user'] = $user->id;
+                    
+                    if ($tipo == 'admin') {
+                        $_SESSION['admin'] = $user->id;
+                    }
+                    
+                    header('location: ../index.php');
                 }
                 
             }
@@ -32,17 +40,33 @@
                 $fetch = mysqli_query($this->con, $sql);
                 if (!$fetch) echo "Erro: ".mysqli_error($this->con);
                 else {
+                    session_start();
+                    
                     $user = mysqli_fetch_object($fetch);
-                    header('location: ../index.php?id='.$user->id);
+                    $_SESSION['user'] = $user->id;
+                    
+                    if ($user->tipo == 'admin') {
+                        $_SESSION['admin'] = $user->id;
+                    }
+                    
+                    header('location: ../index.php');
                 }
             } else {
-                $sql = "SELECT `id` FROM `usuarios` WHERE username = '$username' AND senha = '$senha'";
+                $sql = "SELECT `id`, `tipo` FROM `usuarios` WHERE username = '$username' AND senha = '$senha'";
 
                 $fetch = mysqli_query($this->con, $sql);
                 if (!$fetch) echo "Erro: ".mysqli_error($this->con);
                 else {
+                    session_start();
+
                     $user = mysqli_fetch_object($fetch);
-                    header('location: ../index.php?id='.$user->id);
+                    $_SESSION['user'] = $user->id;
+                    
+                    if ($user->tipo == 'admin') {
+                        $_SESSION['admin'] = $user->id;
+                    }
+                    
+                    header('location: ../index.php');
                 }
             }
         }

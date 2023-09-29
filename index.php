@@ -28,6 +28,9 @@
         <a href="Cadastro_produtos.php" class="btn btn-primary">Admin</a>
       </div>
       <?php }?>
+      <div class="md-5">
+        <a href="backend/logout.php" class="btn btn-primary">Logout</a>
+      </div>
     </nav>
   </nav>
 

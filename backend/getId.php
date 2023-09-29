@@ -7,7 +7,7 @@
 
     $controller = new Controller($con);
 
-    $user = $controller->getId($_GET['id']);
+    $user = $controller->getId($_SESSION['user']);
 
     print_r($user);
 
