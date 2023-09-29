@@ -7,7 +7,7 @@
 
     $controller = new Controller($con);
 
-    $user = $controller->getId(1);
+    $user = $controller->getId($_GET['id']);
 
     print_r($user);
 

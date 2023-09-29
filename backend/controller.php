@@ -13,7 +13,37 @@
             $sql = "INSERT INTO `usuarios`(`nome`, `email`, `username`, `tipo`, `senha`) VALUES ('$nome', '$email', '$userName', '$tipo', '$senha')";
             if(!mysqli_query($this->con, $sql)) echo "Erro: ".mysqli_error($this->con);
             else {
-                    echo "Cadastro feito com sucesso!";
+                $sql = "SELECT `id` FROM `usuarios` WHERE email = '$email' AND senha = '$senha'";
+
+                $fetch = mysqli_query($this->con, $sql);
+                if (!$fetch) echo "Erro: ".mysqli_error($this->con);
+                else {
+                    $user = mysqli_fetch_object($fetch);
+                    header('location: ../index.php?id='.$user->id);
+                }
+                
+            }
+        }
+
+        public function getLogin($email, $username, $senha, $key) {
+            if ($key == 0) {
+                $sql = "SELECT `id` FROM `usuarios` WHERE email = '$email' AND senha = '$senha'";
+
+                $fetch = mysqli_query($this->con, $sql);
+                if (!$fetch) echo "Erro: ".mysqli_error($this->con);
+                else {
+                    $user = mysqli_fetch_object($fetch);
+                    header('location: ../index.php?id='.$user->id);
+                }
+            } else {
+                $sql = "SELECT `id` FROM `usuarios` WHERE username = '$username' AND senha = '$senha'";
+
+                $fetch = mysqli_query($this->con, $sql);
+                if (!$fetch) echo "Erro: ".mysqli_error($this->con);
+                else {
+                    $user = mysqli_fetch_object($fetch);
+                    header('location: ../index.php?id='.$user->id);
+                }
             }
         }
 
@@ -59,8 +89,3 @@
         }
     
     }
-
-   
-
-
-?>
