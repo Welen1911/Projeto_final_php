@@ -1,6 +1,6 @@
 <?php 
   require('backend/getId.php');
-
+  $types = $controller->tipos();
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +42,7 @@
         <th scope="col">Nome</th>
         <th scope="col">Descrição</th>
         <th scope="col">Preço</th>
-        <th scope="col">Tipo_ID</th>
+        <th scope="col">Tipo</th>
       </tr>
     </thead>
     <tbody>
@@ -52,7 +52,9 @@
         <td><?php echo $product[1]?></td>
         <td><?php echo $product[2]?></td>
         <td><?php echo $product[3]?></td>
-        <td><?php echo $product[4]; $cont++?></td>
+        <td><?php foreach($types as $type) {
+          if ($type[0] == $product[4]) echo $type[1];
+        } $cont++?></td>
       </tr>
       <?php }?>
     </tbody>

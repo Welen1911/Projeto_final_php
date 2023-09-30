@@ -111,5 +111,23 @@
 
             }
         }
+
+        public function cadastrarTipo($nome) {
+            $sql = "INSERT INTO `tipos_produtos`(`nome`) VALUES ('$nome')";
+            $fetch = mysqli_query($this->con, $sql);
+            if (!$fetch) echo "Erro: ".mysqli_error($this->con);
+            else {
+                header('location: ../index.php?msg=cpr');
+            }
+        }
+
+        public function tipos() {
+            $sql = "SELECT * FROM `tipos_produtos`";
+            $fetch = mysqli_query($this->con, $sql);
+            if (!$fetch) echo "Erro: ".mysqli_error($this->con);
+            else {
+                return mysqli_fetch_all($fetch);
+            }
+        }
     
     }

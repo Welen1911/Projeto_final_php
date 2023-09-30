@@ -1,5 +1,6 @@
 <?php 
   require('backend/adminSession.php');
+  require('backend/getTypes.php');
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -29,10 +30,11 @@
   </div>
   <div class="col-sm-2">
     <select name="tipo" class="form-control" id="">
-      <option value="bebida">Bebida</option>
-      <option value="comida">Comida</option>
-      <option value="limpeza">Limpeza</option>
-
+      <?php if($types != ''){
+        foreach($types as $type) {  
+      ?>
+      <option value="<?php echo $type[1]?>"><?php echo $type[1]?></option>
+      <?php }}?>
     </select>
   </div>
   <div class="col-sm-2">
@@ -40,6 +42,9 @@
   </div>
   <div class="col-auto">
     <button type="submit" class="btn btn-primary">Cadastrar</button>
+  </div>
+  <div class="col-auto">
+    <a href="Cadastro_tipo.php" class="btn btn-secondary">Cadastrar tipo</a>
   </div>
 </div>
   </form>
