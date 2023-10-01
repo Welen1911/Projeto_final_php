@@ -1,6 +1,8 @@
 <?php 
   require('backend/getId.php');
   $types = $controller->tipos();
+
+  setcookie('user', $_SESSION['user'], time() + 3600);
 ?>
 
 <!DOCTYPE html>
@@ -20,6 +22,7 @@
       <div class="md-5" style="margin-right: 10px;">Produtos</div>
       <?php 
         if ($user->tipo == 'admin') {
+          setcookie('admin', $user->id, time() + 3600);
       ?>
       <div class="md-5">
           <?php echo $user->nome;?>
