@@ -1,8 +1,12 @@
-<?php 
-  require('backend/getId.php');
-  $types = $controller->tipos();
+<?php
+require('backend/getId.php');
+$types = $controller->tipos();
 
-  setcookie('user', $_SESSION['user'], time() + 3600);
+if (isset($_COOKIE['user']) && ($_COOKIE['user'] == $user->id)) {
+}
+setcookie('user', $user->id, time() + 3600);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -20,51 +24,53 @@
   <nav class="nav bg-dark">
     <nav class="navbar text-white">
       <div class="md-5" style="margin-right: 10px;">Produtos</div>
-      <?php 
-        if ($user->tipo == 'admin') {
-          setcookie('admin', $user->id, time() + 3600);
+      <?php
+      if ($user->tipo == 'admin') {
+        setcookie('admin', $user->id, time() + 3600);
       ?>
+        <div class="md-5">
+          <?php echo $user->nome; ?>
+        </div>
+        <div class="md-5">
+          <a href="Cadastro_produtos.php" class="btn btn-primary">Admin</a>
+        </div>
+      <?php } ?>
       <div class="md-5">
-          <?php echo $user->nome;?>
-      </div>
-      <div class="md-5">
-        <a href="Cadastro_produtos.php" class="btn btn-primary">Admin</a>
-      </div>
-      <?php }?>
-      <div class="md-5">
-        <a href="backend/logout.php" class="btn btn-primary">Logout</a>
+        <a href="logout.php" class="btn btn-primary">Logout</a>
       </div>
     </nav>
   </nav>
 
-  <?php if($products != '') { $cont = 1?>
+  <?php if ($products != '') {
+    $cont = 1 ?>
     <table class="table mt-5">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Nome</th>
-        <th scope="col">Descrição</th>
-        <th scope="col">Preço</th>
-        <th scope="col">Tipo</th>
-      </tr>
-    </thead>
-    <tbody>
-      <?php  foreach($products as $product) {?>
+      <thead>
         <tr>
-        <th scope="row"><?php echo $cont?></th>
-        <td><?php echo $product[1]?></td>
-        <td><?php echo $product[2]?></td>
-        <td><?php echo $product[3]?></td>
-        <td><?php foreach($types as $type) {
-          if ($type[0] == $product[4]) echo $type[1];
-        } $cont++?></td>
-      </tr>
-      <?php }?>
-    </tbody>
-  </table>
-  <?php } else {?>
+          <th scope="col">#</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Descrição</th>
+          <th scope="col">Preço</th>
+          <th scope="col">Tipo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php foreach ($products as $product) { ?>
+          <tr>
+            <th scope="row"><?php echo $cont ?></th>
+            <td><?php echo $product[1] ?></td>
+            <td><?php echo $product[2] ?></td>
+            <td><?php echo $product[3] ?></td>
+            <td><?php foreach ($types as $type) {
+                  if ($type[0] == $product[4]) echo $type[1];
+                }
+                $cont++ ?></td>
+          </tr>
+        <?php } ?>
+      </tbody>
+    </table>
+  <?php } else { ?>
     <h1>Não tem produtos disponíveis!</h1>
-  <?php }?>
+  <?php } ?>
 
 </body>
 

@@ -17,9 +17,5 @@
 
     $products = $controller->getProducts();
 
-    print_r($products);
-
-    if ($products == '') {
-        echo "Não tem produtos disponíveis!";
-    }
+    print_r($_COOKIE);
 ?>
