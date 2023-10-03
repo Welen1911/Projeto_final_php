@@ -2,8 +2,6 @@
 require('backend/getId.php');
 $types = $controller->tipos();
 
-if (isset($_COOKIE['user']) && ($_COOKIE['user'] == $user->id)) {
-}
 setcookie('user', $user->id, time() + 3600);
 
 
@@ -23,7 +21,8 @@ setcookie('user', $user->id, time() + 3600);
 <body>
   <nav class="nav bg-dark">
     <nav class="navbar text-white">
-      <div class="md-5" style="margin-right: 10px;">Produtos</div>
+    <div class="md-5" style="margin-right: 10px;"><a href="index.php" style="text-decoration: none;" class="text-white">Produtos</a></div>
+
       <?php
       if ($user->tipo == 'admin') {
         setcookie('admin', $user->id, time() + 3600);
@@ -41,7 +40,8 @@ setcookie('user', $user->id, time() + 3600);
     </nav>
   </nav>
 
-  <?php if ($products != '') {
+  <?php 
+  if (count($products) != 0) {
     $cont = 1 ?>
     <table class="table mt-5">
       <thead>

@@ -9,13 +9,6 @@
 
     $user = $controller->getId($_SESSION['user']);
 
-    print_r($user);
-
-    if ($user->tipo == 'admin') {
-        echo "Administrador!";
-    }
-
     $products = $controller->getProducts();
 
-    print_r($_COOKIE);
 ?>

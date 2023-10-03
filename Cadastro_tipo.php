@@ -13,7 +13,8 @@
 <body>
 <nav class="nav bg-dark">
     <nav class="navbar text-white">
-      <div class="md-5" style="margin-right: 10px;">Produtos</div>
+    <div class="md-5" style="margin-right: 10px;"><a href="index.php" style="text-decoration: none;" class="text-white">Produtos</a></div>
+
     </nav>
   </nav>
   <br>
